@@ -1,0 +1,32 @@
+{
+  "JSON_TYPE": "WDistance:NO_COORD",
+  "GRAPH_NAME": "Billy",
+  "NODES": 9,
+  "NODE_ARRAY:": "S,A,B,C,D,E,F,G,T",
+  "NODE_CONNECTIONS": {
+    "S": "A,B,C",
+    "A": "S,D",
+    "B": "S,D,F,E",
+    "C": "S,E",
+    "D": "A,F",
+    "E": "C,B,G,F",
+    "F": "D,B,E,T",
+    "G": "E,T",
+    "T": "F,G"
+  },
+  "CONNECTION_DISTANCES" : {
+    "SA": 157,
+    "SB": 134,
+    "SC": 102,
+    "AD": 105,
+    "BD": 79,
+    "BF": 195,
+    "BE": 83,
+    "CE": 85,
+    "DF": 149,
+    "EF": 123,
+    "EG": 117,
+    "FT": 101,
+    "GT": 122
+  }
+}
