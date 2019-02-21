@@ -124,3 +124,16 @@ class Matrix:
                             # handle error
                             print("Error File Does not exist")
                             return "I/O Error"
+    def UseHeuristic(): # Checks if the JSON has support for A-Star heuristic methods.
+            File = Matrix.JsonFile
+            if os.path.exists(File):
+                Jsondata = json.load(File) # Load up the Json
+                try:
+                    heuristic = Jsondata['USE_HEURISTIC']
+                except KeyError :
+                    return False
+                else:
+                    if heuristic == 'TRUE' :
+                        return True
+                    else
+                        return False
