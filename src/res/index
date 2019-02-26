@@ -1,0 +1,7 @@
+{
+  "index" : "res",
+  "Branches" : 2,
+  "BranchSet1" : ["[dir,json]","[dir,xml]"],
+  "BranchSet2" : ["[json,json/data.json]"]
+
+}

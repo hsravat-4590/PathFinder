@@ -1,0 +1,12 @@
+{
+  "JSON_TYPE" :"ShellIndex",
+  "Commands" : {
+    "tree": "builder",
+    "build" : "builder",
+    "flush" : "cleaner",
+    "wipe" : "cleaner",
+    "set" : "set",
+    "get" : "getvar"
+  }
+
+}

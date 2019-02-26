@@ -3,14 +3,16 @@ import json
 
 
 class Matrix:
-
     # Matrix Class is used to handle raw node data and parse it into a Json File for Dijkstra
     graph = {}  # Matrix holds graph
     NodeArray = [] # Array with all nodes of the network
     JsonFile = "data.json"  # Link to Json File (Set as a blank string)
     JSON = 0
     Meta_JSON = {}
-    JSON_KEYS = ["JSON_TYPE","GRAPH_NAME","NODES","NODE_ARRAY","NODE_CONNECTIONS","CONNECTION_DISTANCES"]
+    JSON_KEYS = ["JSON_TYPE", "GRAPH_NAME", "NODES", "NODE_ARRAY", "NODE_CONNECTIONS", "CONNECTION_DISTANCES"]
+
+    def __init__(self,JsonFile):
+        self.JsonFile = JsonFile
 
     def CheckJson(doall=True,Meta_JSON=Meta_JSON,SaveRAM = False,Get_JsonType = False,GetNodes = False,GetNodeArray = False,GetConnections=False,GetDistances= False):
         """Saves all Get Properties in Meta_JSON Dict. If only one Get is True, Then the value will be returned."""
@@ -22,7 +24,6 @@ class Matrix:
             GetNodes = True
             Get_JsonType = True
         global JsonFile
-        JsonFile = "data.json"
         # global Meta_JSON
         json_exist = os.path.isfile("data.json")
         if json_exist == True :  # File exists so try to read it and get a value
@@ -124,16 +125,18 @@ class Matrix:
                             # handle error
                             print("Error File Does not exist")
                             return "I/O Error"
-    def UseHeuristic(): # Checks if the JSON has support for A-Star heuristic methods.
-            File = Matrix.JsonFile
-            if os.path.exists(File):
-                Jsondata = json.load(File) # Load up the Json
+
+    def useheuristic(self): # Checks if the JSON has support for A-Star heuristic methods.
+
+            file = Matrix.JsonFile
+            if os.path.exists(file):
+                Jsondata = json.load(file) # Load up the Json
                 try:
                     heuristic = Jsondata['USE_HEURISTIC']
                 except KeyError :
                     return False
                 else:
-                    if heuristic == 'TRUE' :
+                    if heuristic == 'TRUE':
                         return True
-                    else
+                    else:
                         return False
